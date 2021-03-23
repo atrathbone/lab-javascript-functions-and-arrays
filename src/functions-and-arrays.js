@@ -142,7 +142,7 @@ function uniquifyArray(duplicatesArr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arrOfWordsThatMightExist, wordThatMightExist){
+function doesWordExist(arrOfWordsThatMightExist, wordThatMightExist) {
   if (arrOfWordsThatMightExist.length === 0) {
     return null;
   }
@@ -165,7 +165,7 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(array, string){
+function howManyTimes(array, string) {
   return array.filter((v) => (v === string)).length;
 }
 
@@ -193,3 +193,32 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let rowsHighest = rows(matrix);
+  let columnsHighest = columns(matrix);
+  if(rowsHighest>columnsHighest){return rowsHighest;}
+  else{return columnsHighest};
+}
+
+function rows(matrix) {
+  let totals = [];
+  for (let i = 0; i < matrix.length; i++) {
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    totals.push(matrix[i].reduce(reducer));
+  }
+  return Math.max(...totals);
+}
+
+function columns(matrix) {
+  let totals = [];
+  for (let i = 0; i < matrix.length; i++) {
+    let subTotals = [];
+    for (let n = 0; i < matrix.length; i++) {
+      subTotals.push(matrix[i][n]);
+    }
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    totals.push(subTotals.reduce(reducer));
+  }
+  return Math.max(...totals);
+}
