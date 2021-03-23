@@ -64,8 +64,57 @@ function sum(arrOfAnythingToBeAdded) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arrOfNumToAverage) {
+  if (arrOfNumToAverage.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < arrOfNumToAverage.length; i++) {
+    sum += arrOfNumToAverage[i];
+  }
+  return sum / arrOfNumToAverage.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrOfstringsToAverage) {
+  if (arrOfstringsToAverage.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < arrOfstringsToAverage.length; i++) {
+    sum += arrOfstringsToAverage[i].length;
+  }
+  return sum / arrOfstringsToAverage.length;
+}
+
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    switch (typeof arr[i]) {
+      case 'number':
+        sum += arr[i];
+        break;
+      case 'string':
+        let tempLen = arr[i].length;
+        sum += tempLen;
+        break;
+      case 'boolean':
+        let tempBoolNum = arr[i] ? 1 : 0;
+        console.log(tempBoolNum);
+        sum += tempBoolNum;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  let av = (sum / arr.length).toFixed(2);
+  return parseFloat(av);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -81,6 +130,10 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(){
+
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
