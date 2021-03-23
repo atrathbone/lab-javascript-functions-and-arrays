@@ -131,8 +131,10 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(){
-
+function uniquifyArray(duplicatesArr){
+if (duplicatesArr.length===0){return null;}
+let unique = [...new Set(duplicatesArr)]
+return unique;
 }
 
 // Iteration #6: Find elements
