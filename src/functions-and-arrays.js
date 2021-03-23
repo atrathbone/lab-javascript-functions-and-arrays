@@ -204,21 +204,27 @@ function greatestProduct(matrix) {
 function rows(matrix) {
   let totals = [];
   for (let i = 0; i < matrix.length; i++) {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    totals.push(matrix[i].reduce(reducer));
+    // const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    // totals.push(matrix[i].reduce(reducer));
+    let p = 1;
+    for (n = 0; n < matrix[i].length; i += 1) 
+   {
+    p *= matrix[i][n];
+    }
+    totals.push(p);
   }
   return Math.max(...totals);
 }
 
-function columns(matrix) {
-  let totals = [];
-  for (let i = 0; i < matrix.length; i++) {
-    let subTotals = [];
-    for (let n = 0; i < matrix.length; i++) {
-      subTotals.push(matrix[i][n]);
-    }
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    totals.push(subTotals.reduce(reducer));
-  }
-  return Math.max(...totals);
-}
+// function columns(matrix) {
+//   let totals = [];
+//   for (let i = 0; i < matrix.length; i++) {
+//     let subTotals = [];
+//     for (let n = 0; i < matrix.length; i++) {
+//       subTotals.push(matrix[i][n]);
+//     }
+//     // const reducer = (accumulator, currentValue) => accumulator + currentValue;
+//     // totals.push(subTotals.reduce(reducer));
+//   }
+//   return Math.max(...totals);
+// }
