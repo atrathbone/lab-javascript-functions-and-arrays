@@ -29,13 +29,35 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(arrOfNumbersToBeAdded) {
   let sum = 0;
   for (let i = 0; i < arrOfNumbersToBeAdded.length; i++) {
-    sum += arrOfNumbersToBeAdded[i] ;
+    sum += arrOfNumbersToBeAdded[i];
   }
-  return sum; 
+  return sum;
 }
 
-function sum(arrOfAnythingToBeAdded){
+//sum(mixedArr);
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(arrOfAnythingToBeAdded) {
+  let sum = 0;
+  for (let i = 0; i < arrOfAnythingToBeAdded.length; i++) {
+    switch (typeof arrOfAnythingToBeAdded[i]) {
+      case 'number':
+        sum += arrOfAnythingToBeAdded[i];
+        break;
+      case 'string':
+        let tempLen = arrOfAnythingToBeAdded[i].length;
+        sum += tempLen;
+        break;
+      case 'boolean':
+        let tempBoolNum = arrOfAnythingToBeAdded[i] ? 1 : 0;
+        console.log(tempBoolNum);
+        sum += tempBoolNum;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
 }
 
 // Iteration #4: Calculate the average
